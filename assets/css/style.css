@@ -1,0 +1,56 @@
+.slide-in {
+    display: inline-block;
+    animation: slide-in 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.taskImage {
+    max-width: 50%;
+    height: 5%;
+    /* max-height: 50vh; */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #f8f9fa;
+}
+.container {
+    padding: 50px 0;
+    text-align: center;
+}
+#inputValue {
+    padding: 20px;
+}
+#task-image {
+    max-width: 100%;
+    padding: 15px;
+    margin-bottom: auto;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px 0 rgba(231, 117, 117, 0.2);
+    height: 25%;
+    border-radius: 25px;
+}
+.card {
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+#result {
+    display: flex;
+    justify-content: space-between;
+}
+#alertBox {
+    padding: 15px;
+    margin: 15px;
+}
+#footer {
+    background-color: #e2ecfa;
+}
