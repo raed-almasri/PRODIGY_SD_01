@@ -1,8 +1,8 @@
-# PRODIGY_SD_01
+# PRODIGY_SD_02
 
 ## About
 
-program that converts temperatures between Celsius, Fahrenheit, and Kelvin scales. The program should prompt the user to input a temperature value and the original unit of measurement. It should then convert the temperature to the other two units and display the converted values to the user.
+Build a program that generates a random number and challenges the user to guess it. The program should prompt the user to input their guess, compare it to the generated number, and provide feedback if the guess is too high or too low. It should continue until the user correctly guesses the number and then display the number of attempts it took to win the game
 
 ## Installation
 
@@ -12,7 +12,7 @@ program that converts temperatures between Celsius, Fahrenheit, and Kelvin scale
 
 ## Usage
 
-converts temperatures between Celsius, Fahrenheit, and Kelvin scales.
+Create a Guessing Game.
 
 ## Contact :
 

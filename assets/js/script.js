@@ -1,85 +1,40 @@
-function celsiusToFahrenheit(celsius) {
-    return (celsius * 9) / 5 + 32;
-}
+// Generate a random number between 1 and 100
+let generateRandom = () => {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
 
-function celsiusToKelvin(celsius) {
-    return celsius + 273.15;
-}
+    return randomNumber;
+};
+let randomNumber = generateRandom();
+let attempts = 0;
+console.log(randomNumber);
+document.getElementById("gift").hidden = true;
+// document.getElementById("message").hidden = true;
+function checkGuess() {
+    let guess = parseInt(document.getElementById("guessInput").value);
+    const message = document.getElementById("message");
+    const attemptsDisplay = document.getElementById("attempts");
 
-function fahrenheitToCelsius(fahrenheit) {
-    return ((fahrenheit - 32) * 5) / 9;
-}
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+        message.textContent = "Please enter a valid number between 1 and 100";
+        document.getElementById("gift").hidden = true;
+    } else {
+        attempts++;
+        if (guess === randomNumber) {
+            message.textContent = `🎉 Congratulations ! You guessed the correct number. It took you ${attempts} attempts. 🎉`;
+            attemptsDisplay.textContent = "";
 
-function fahrenheitToKelvin(fahrenheit) {
-    return ((fahrenheit + 459.67) * 5) / 9;
-}
-
-function kelvinToCelsius(kelvin) {
-    return kelvin - 273.15;
-}
-
-function kelvinToFahrenheit(kelvin) {
-    return (kelvin * 9) / 5 - 459.67;
-}
-
-function convertTemperature(value, originalUnit, targetUnit) {
-    let result = 0;
-
-    if (originalUnit === "Celsius") {
-        if (targetUnit === "Fahrenheit") {
-            result = celsiusToFahrenheit(value);
-        } else if (targetUnit === "Kelvin") {
-            result = celsiusToKelvin(value);
-        }
-    } else if (originalUnit === "Fahrenheit") {
-        if (targetUnit === "Celsius") {
-            result = fahrenheitToCelsius(value);
-        } else if (targetUnit === "Kelvin") {
-            result = fahrenheitToKelvin(value);
-        }
-    } else if (originalUnit === "Kelvin") {
-        if (targetUnit === "Celsius") {
-            result = kelvinToCelsius(value);
-        } else if (targetUnit === "Fahrenheit") {
-            result = kelvinToFahrenheit(value);
+            document.getElementById("gift").hidden = false;
+            randomNumber = generateRandom();
+            console.log(randomNumber);
+            attempts = 0;
+        } else if (guess < randomNumber) {
+            message.textContent = "Too low! Try again.";
+            attemptsDisplay.textContent = `Attempts: ${attempts}`;
+            document.getElementById("gift").hidden = true;
+        } else {
+            message.textContent = "Too high! Try again.";
+            attemptsDisplay.textContent = ` Attempts: ${attempts}`;
+            document.getElementById("gift").hidden = true;
         }
     }
-
-    return result;
 }
-document.getElementById("convertBtn").addEventListener("click", function () {
-    const inputValue = parseFloat(document.getElementById("inputValue").value);
-    const originalUnit = document.getElementById("unitSelector").value;
-
-    if (isNaN(inputValue)) {
-        if (!inputValue) {
-            document.getElementById("alertBox").hidden = false;
-        }
-        return;
-    }
-    document.getElementById("alertBox").hidden = true;
-    const resultInCelsius = convertTemperature(
-        inputValue,
-        originalUnit,
-        "Celsius"
-    ).toFixed(2);
-    const resultInFahrenheit = convertTemperature(
-        inputValue,
-        originalUnit,
-        "Fahrenheit"
-    ).toFixed(2);
-    const resultInKelvin = convertTemperature(
-        inputValue,
-        originalUnit,
-        "Kelvin"
-    ).toFixed(2);
-    document.getElementById(
-        "resultInCelsius"
-    ).innerHTML = `${resultInCelsius} degrees Celsius`;
-    document.getElementById(
-        "resultInFahrenheit"
-    ).innerHTML = `${resultInFahrenheit} degrees Fahrenheit`;
-    document.getElementById(
-        "resultInKelvin"
-    ).innerHTML = `${resultInKelvin} Kelvin`;
-});

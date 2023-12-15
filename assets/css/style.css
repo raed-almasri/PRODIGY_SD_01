@@ -31,7 +31,7 @@ body {
 #task-image {
     max-width: 100%;
     padding: 15px;
-    margin-bottom: auto;
+    margin-bottom: 30px;
     background-color: #f8f9fa;
     box-shadow: 0 4px 8px 0 rgba(231, 117, 117, 0.2);
     height: 25%;
@@ -53,4 +53,8 @@ body {
 }
 #footer {
     background-color: #e2ecfa;
+}
+.message {
+    font-size: larger;
+    color: rgba(255, 60, 77, 0.892);
 }
